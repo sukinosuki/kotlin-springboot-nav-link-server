@@ -10,6 +10,7 @@
 
 ## 接口文档
 
+增删改接口需要添加请求header-Authorization: {{token(登录返回的token)}}
 ### 用户 User
 
 - 注册: 
