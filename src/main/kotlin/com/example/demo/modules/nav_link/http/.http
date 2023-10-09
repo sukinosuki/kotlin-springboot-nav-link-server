@@ -1,0 +1,29 @@
+# @name add
+POST {{host}}/api/v1/nav-link
+Content-Type: application/json
+
+{
+  "name": "Vite2",
+  "url": "https://react.dev/",
+  "logo": "https://react.dev/logo",
+  "categoryId": 18
+}
+
+###
+#@name update
+PUT {{host}}/api/v1/nav-link/1
+Content-Type: application/json
+
+{
+  "name": "vue",
+  "url": "1111url",
+  "categoryId": 1
+}
+
+###
+#@name delete
+DELETE {{host}}/api/v1/nav-link/11
+
+###
+#@name all
+GET {{host}}/api/v1/nav-link

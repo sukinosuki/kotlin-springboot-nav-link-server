@@ -1,0 +1,26 @@
+#@name all
+GET {{host}}/api/v1/category
+
+###
+
+#@name add
+POST {{host}}/api/v1/category
+Content-Type: application/json
+
+{
+  "name": "Vite",
+  "pid": 14
+}
+
+###
+# @name delete
+DELETE {{host}}/api/v1/category/3
+
+###
+# @name update
+PUT {{host}}/api/v1/category/1
+Content-Type: application/json
+
+{
+  "name": "前端"
+}
