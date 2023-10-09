@@ -39,8 +39,8 @@ class AppExceptionHandler {
     @ExceptionHandler(Exception::class)
     @ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
     fun handleException(e: Exception, request: HttpServletRequest): R<Any?> {
-        println("全局异常, e: ${e}")
-        println("全局异常, e.message: ${e.message}")
+        logger.error("全局异常, e: ${e}")
+        logger.error("全局异常, e.message: ${e.message}")
 
         // sql exception
         if (e.message?.contains("a foreign key constraint fails") == true) {
@@ -161,8 +161,7 @@ class AppExceptionHandler {
     // 自定义异常
     @ExceptionHandler(AppException::class)
     fun handleAppException(e: AppException, request: HttpServletRequest): R<Any?> {
-        println("捕获自定义错误, $e")
-        println("捕获自定义错误, ${e.message}")
+        logger.warn("捕获自定义错误, ${e.message}")
 
         return R(e.code, e.message, null)
     }

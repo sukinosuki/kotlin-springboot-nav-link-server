@@ -1,6 +1,7 @@
 package com.example.demo.util
 
 import com.example.demo.common.BaseTree
+import java.util.*
 import java.util.stream.Collectors
 
 fun <T : BaseTree<T>> listToTree(list: List<T>, nullableEmptyChildren: Boolean = true): List<T> {
@@ -30,4 +31,11 @@ fun <T : BaseTree<T>> listToTree(list: List<T>, nullableEmptyChildren: Boolean =
 //        return filter1.collect(Collectors.toList())
 
     return list.filter { it.pid == 0L }
+}
+
+fun generateTraceId(): String {
+    val uuid = UUID.randomUUID().toString().replace("-", "")
+
+//        return uuid.substring(0, 16)
+    return uuid
 }

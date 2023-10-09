@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 
 @Service
-class CategoryServiceImpl: CategoryService {
+class CategoryServiceImpl : CategoryService {
 
     @Autowired
     lateinit var categoryMapper: CategoryMapper
@@ -23,7 +23,7 @@ class CategoryServiceImpl: CategoryService {
     // 新增
     override fun add(form: AddForm): Long {
         val category = Category(
-            name = form.name,
+            name = form.name!!,
             pid = form.pid ?: 0
         )
 
@@ -38,12 +38,10 @@ class CategoryServiceImpl: CategoryService {
         val uw = UpdateWrapper<Category>()
             .eq(Category::id.name, form.id)
             .set(Category::name.name, form.name)
+            .set(Category::pid.name, form.pid ?: 0)
             // TODO:
             .set("updated_at", LocalDateTime.now())
 
-        if (form.pid != null) {
-            uw.set(Category::pid.name, form.pid)
-        }
         if (form.sort != null) {
             uw.set(Category::sort.name, form.sort)
         }

@@ -1,6 +1,7 @@
 package com.example.demo.modules.nav_link.http
 
 import com.example.demo.common.R
+import com.example.demo.components.annotation.NeedAuth
 import com.example.demo.modules.nav_link.model.AddForm
 import com.example.demo.modules.nav_link.model.NavLinkMapperGetAllResult
 import com.example.demo.modules.nav_link.model.ResNavSimple
@@ -23,6 +24,7 @@ class NavLinkController {
     @Autowired
     lateinit var navLinkService: NavLinkService
 
+    @NeedAuth
     @PostMapping
     fun add(@Valid @RequestBody @NotNull form: AddForm): R<Nothing> {
 
@@ -31,6 +33,7 @@ class NavLinkController {
         return R.ok()
     }
 
+    @NeedAuth
     @PutMapping("/{id}")
     fun update(@Valid @RequestBody @NotNull form: AddForm, @PathVariable id: Long): R<Nothing> {
         form.id = id
@@ -40,6 +43,7 @@ class NavLinkController {
         return R.ok()
     }
 
+    @NeedAuth
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Long): R<Nothing> {
         navLinkService.delete(listOf(id))
@@ -47,6 +51,7 @@ class NavLinkController {
         return R.ok()
     }
 
+    @NeedAuth
     @GetMapping
     fun getAll(): R<List<ResNavSimple>> {
 

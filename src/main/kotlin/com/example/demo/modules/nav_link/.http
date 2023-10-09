@@ -1,23 +1,27 @@
 # @name add
 POST {{host}}/api/v1/nav-link
 Content-Type: application/json
+Authorization: {{auth_token}}
 
 {
-  "name": "Vite2",
+  "name": "Vite22",
   "url": "https://react.dev/",
   "logo": "https://react.dev/logo",
-  "categoryId": 18
+  "categoryId": 18,
+  "sort": 23
 }
 
 ###
 #@name update
-PUT {{host}}/api/v1/nav-link/1
+PUT {{host}}/api/v1/nav-link/17
 Content-Type: application/json
+Authorization: {{auth_token}}
 
 {
   "name": "vue",
   "url": "1111url",
-  "categoryId": 1
+  "categoryId": 18,
+  "sort": 322
 }
 
 ###
@@ -27,3 +31,4 @@ DELETE {{host}}/api/v1/nav-link/11
 ###
 #@name all
 GET {{host}}/api/v1/nav-link
+Authorization: {{auth_token}}

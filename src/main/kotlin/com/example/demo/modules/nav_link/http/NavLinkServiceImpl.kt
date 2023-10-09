@@ -76,25 +76,6 @@ class NavLinkServiceImpl : NavLinkService {
     }
 
     override fun getAll(): List<ResNavSimple> {
-//        val all = navLinkMapper.getAll()
-//
-//        val categoryGroup = all.groupBy { it.pid }
-//
-//        val linkGroup = all.filter { it.webId != 0L }.groupBy { it.webCategoryId }
-//
-//        all.forEach { category ->
-//            val value = linkGroup.get(category.id)
-//
-//            value?.let {
-//                category.children = value.map { it.copy() }
-//            }
-//
-//        }
-//
-//
-//        val filter = all.filter { it.pid == 0L }
-//
-//        return filter
 
         val categories = categoryDao.list()
         val links = navLinkDao.list(QueryWrapper<NavLink>().orderBy(true, true, "sort"))

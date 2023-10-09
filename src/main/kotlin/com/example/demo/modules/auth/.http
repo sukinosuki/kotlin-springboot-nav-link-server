@@ -1,0 +1,30 @@
+#@name register
+
+POST {{host}}/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "username": "hanami2",
+  "password": "233233"
+}
+
+> {%
+    client.log(response.body.data);
+
+    client.global.set("auth_token", response.body.data);
+%}
+
+###
+POST {{host}}/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "hanami",
+  "password": "233233"
+}
+
+> {%
+    client.log(response.body.data);
+
+    client.global.set("auth_token", response.body.data);
+%}

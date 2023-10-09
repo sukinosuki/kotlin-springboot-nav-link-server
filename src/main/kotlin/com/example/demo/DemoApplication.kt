@@ -10,13 +10,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 
 @EnableConfigurationProperties(value = [JWTProperty::class])
 @SpringBootApplication(exclude = [SecurityAutoConfiguration::class])
-class DemoApplication
-
-fun main(args: Array<String>) {
-	runApplication<DemoApplication>(*args)
-
+class DemoApplication {
 	@Bean
 	fun passwordEncoder(): BCryptPasswordEncoder {
 		return BCryptPasswordEncoder()
 	}
+}
+
+fun main(args: Array<String>) {
+	runApplication<DemoApplication>(*args)
 }

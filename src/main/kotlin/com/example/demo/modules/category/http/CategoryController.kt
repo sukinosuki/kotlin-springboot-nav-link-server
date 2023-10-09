@@ -2,6 +2,7 @@ package com.example.demo.modules.category.http
 
 import com.example.demo.model.Category
 import com.example.demo.common.R
+import com.example.demo.components.annotation.NeedAuth
 import com.example.demo.modules.category.model.AddForm
 import com.example.demo.modules.category.model.UpdateForm
 import org.jetbrains.annotations.NotNull
@@ -31,6 +32,7 @@ class CategoryController {
         return R.ok(list)
     }
 
+    @NeedAuth
     @PostMapping
     fun add(@Valid @RequestBody @NotNull form: AddForm): R<Nothing> {
 
@@ -39,6 +41,7 @@ class CategoryController {
         return R.ok()
     }
 
+    @NeedAuth
     @PutMapping("/{id}")
     fun update(@PathVariable id: Long, @Valid @RequestBody form: UpdateForm): R<Nothing> {
         form.id = id
@@ -48,6 +51,7 @@ class CategoryController {
         return R.ok()
     }
 
+    @NeedAuth
     @DeleteMapping("/{id}")
     fun delete(@PathVariable id: Long): R<NotNull> {
         categoryService.delete(listOf(id))

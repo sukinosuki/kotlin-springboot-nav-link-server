@@ -2,7 +2,7 @@ package com.example.demo.common
 
 enum class AppErrorCode(val code: Int, val msg: String) {
     PARAM_ERR(400, "参数错误"),
-    NOT_LOGIN(401, "请先登录"),
+    UN_AUTHORIZED(401, "请先登录"),
     FORBIDDEN(403, "权限不足"),
     RECORD_NOT_FOUND(404, "请求资源不存在"),
     METHOD_NOT_ALLOWED(405, "Method Not Allowed"),

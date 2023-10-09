@@ -29,6 +29,10 @@ class AppException(errCode: AppErrorCode, msg: String? = null) : RuntimeExceptio
             return AppException(AppErrorCode.ACTION_FAIL, msg)
         }
 
+        fun unAuthorizeError(msg: String? = null): AppException {
+            return AppException(AppErrorCode.UN_AUTHORIZED, msg)
+        }
+
         /**
          * 图片上传失败
          */

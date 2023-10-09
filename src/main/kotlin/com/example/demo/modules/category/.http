@@ -6,21 +6,26 @@ GET {{host}}/api/v1/category
 #@name add
 POST {{host}}/api/v1/category
 Content-Type: application/json
+Authorization: {{auth_token}}
 
 {
-  "name": "Vite",
-  "pid": 14
+  "name": "文档",
+  "sort": 11
 }
 
 ###
 # @name delete
 DELETE {{host}}/api/v1/category/3
+Authorization: {{auth_token}}
 
 ###
 # @name update
 PUT {{host}}/api/v1/category/1
 Content-Type: application/json
+Authorization: {{auth_token}}
 
 {
-  "name": "前端"
+  "name": "前端",
+  "pid": 0,
+  "sort": 222
 }
